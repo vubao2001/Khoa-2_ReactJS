@@ -1,5 +1,6 @@
 // import "../../assets/bootstrap.css";
 import "../../assets/bootstrap.css";
+import "./ItemProducts.css"
 
 
 // eslint-disable-next-line react/prop-types
