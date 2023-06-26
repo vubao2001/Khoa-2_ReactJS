@@ -6,35 +6,35 @@ import { productMockData } from '../ItemList/ItemProducts';
 //     {
 //         id: '1',
 //         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
-//         title: 'Sản phẩm 1',
+//         name: 'Sản phẩm 1',
 //         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
 //         price: 100,
 //     },
 //     {
 //         id: '2',
 //         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
-//         title: 'Sản phẩm 2',
+//         name: 'Sản phẩm 2',
 //         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
 //         price: 100,
 //     },
 //     {
 //         id: '3',
 //         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
-//         title: 'Sản phẩm 3',
+//         name: 'Sản phẩm 3',
 //         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
 //         price: 100,
 //     },
 //     {
 //         id: '4',
 //         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
-//         title: 'Sản phẩm 4',
+//         name: 'Sản phẩm 4',
 //         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
 //         price: 100,
 //     },
 //     {
 //         id: '5',
 //         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
-//         title: 'Sản phẩm 5',
+//         name: 'Sản phẩm 5',
 //         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
 //         price: 100,
 //     },
@@ -50,7 +50,7 @@ const FormProduct = () => {
         const form = e.target;
         const newProduct = {
             image: form['image'].files[0],
-            title: form['title'].value,
+            name: form['name'].value,
             text: form['text'].value,
             price: form['price'].value,
         }
@@ -72,7 +72,7 @@ const FormProduct = () => {
 
                     <div className="tt">
                         <label htmlFor="">Tên sản phẩm:</label>
-                        <input type="text" name="title" />
+                        <input type="text" name="name" />
                     </div>
 
                     <div className="tt">

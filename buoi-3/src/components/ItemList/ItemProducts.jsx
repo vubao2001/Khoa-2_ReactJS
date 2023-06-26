@@ -54,11 +54,11 @@ const ItemProducts = () => {
     // Thêm sản phẩm và cập nhật lại mảng
     const onAddProductHandler = (e) => {
         e.preventDefault();
-        console.log(e.target['image'].files[0].name);
+        // console.log(e.target['image'].files[0].name);
         const form = e.target;
         const newProduct = {
-            image: form['image'].files[0].name,
-            title: form['name'].value,
+            image: form['image'].files[0],
+            name: form['name'].value,
             text: form['text'].value,
             price: form['price'].value,
         }
@@ -73,7 +73,8 @@ const ItemProducts = () => {
         // console.log(113);
         // productList.map((product) => {
         //     if (e.target['name'].value === product.name) {
-        //         console.log(product);
+        //         productList.splice(productList[product.index], 1);
+        //         setProductList([...productList]);
         //     }
         // })
     };
@@ -95,7 +96,7 @@ const ItemProducts = () => {
 
                     <div className="tt">
                         <label htmlFor="">Tên sản phẩm:</label>
-                        <input type="text" name="title" />
+                        <input type="text" name="name" />
                     </div>
 
                     <div className="tt">
