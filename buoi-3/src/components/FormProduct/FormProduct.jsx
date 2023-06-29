@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
 import './FormProduct.css';
-import { productMockData } from '../ItemList/ItemProducts';
+// import { productMockData } from '../ItemList/ItemProducts';
 
 // export const productMockData = [
 //     {
@@ -40,23 +41,55 @@ import { productMockData } from '../ItemList/ItemProducts';
 //     },
 // ]
 
-const FormProduct = () => {
+const initialState = {
+    image: "",
+    name: "",
+    text: "",
+    price: "",
+}
 
-    const [productList, setProductList] = useState(productMockData);
+const FormProduct = (props) => {
 
-    const onAddProductHandler = (e) => {
+    const [product, setProduct] = useState(initialState);
+
+
+    // cách 1
+    // const onAddProductHandler = (e) => {
+    //     e.preventDefault();
+    //     // console.log(e.target['image'].files);
+    //     const form = e.target;
+    //     const newProduct = {
+    //         image: form['image'].files[0],
+    //         name: form['name'].value,
+    //         text: form['text'].value,
+    //         price: form['price'].value,
+    //     }
+    //     // console.log(newProduct);
+    //     productList.push(newProduct);
+    //     setProductList([...productList]);
+    // };
+
+
+    // cách 2: nên dùng
+    const onChangeHandler  = (e) => {
         e.preventDefault();
-        // console.log(e.target['image'].files);
-        const form = e.target;
-        const newProduct = {
-            image: form['image'].files[0],
-            name: form['name'].value,
-            text: form['text'].value,
-            price: form['price'].value,
-        }
-        // console.log(newProduct);
-        productList.push(newProduct);
-        setProductList([...productList]);
+        const {name , value} = e.target;
+        setProduct({
+            ...product,
+            [name]: value,
+        })
+    };
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        props.addNewProduct(product);
+
+        setProduct(initialState)
+    }
+
+    const onArrangeHandler = () => {
+        props.arrangeProductHandler();
     };
 
 
@@ -64,31 +97,31 @@ const FormProduct = () => {
         <>
             <div className="form-product">
                 <h3>Form xử lý sản phẩm</h3>
-                <form action="" onSubmit={onAddProductHandler}>
+                <form action="" onSubmit={onSubmitHandler}>
                     <div className="tt">
                         <label htmlFor="">Chọn ảnh:</label>
-                        <input type="file" name="image" />
+                        <input type="file" name="image" value={product.image} onChange={onChangeHandler} />
                     </div>
 
                     <div className="tt">
                         <label htmlFor="">Tên sản phẩm:</label>
-                        <input type="text" name="name" />
+                        <input type="text" name="name" value={product.name} onChange={onChangeHandler} />
                     </div>
 
                     <div className="tt">
                         <label htmlFor="">Mô tả:</label>
-                        <input type="text" name="text" />
+                        <input type="text" name="text" value={product.text} onChange={onChangeHandler} />
                     </div>
 
                     <div className="tt">
                         <label htmlFor="">Giá:</label>
-                        <input type="number" name='price' />
+                        <input type="number" name='price' value={product.price} onChange={onChangeHandler} />
                     </div>
 
                     <button type="submit" >Thêm</button>
                     <button>Sửa</button>
                     <button>Tìm kiếm</button>
-                    <button>Xóa</button>
+                    <button onClick={onArrangeHandler} >Sắp xếp (theo giá giảm dần)</button>
                 </form>
             </div>
         </>
