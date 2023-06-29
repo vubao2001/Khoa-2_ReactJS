@@ -73,10 +73,26 @@ const FormProduct = (props) => {
     // cách 2: nên dùng
     const onChangeHandler  = (e) => {
         e.preventDefault();
+        // const [imageSrc, setImageSrc] = useState('');
+        // const file = e.target.files[0];
+        // if (file) {
+        //     const reader = new FileReader();
+      
+        //     // Xử lý khi đọc file hoàn tất
+        //     reader.onload = function(event) {
+        //         setImageSrc(event.target.result);
+        //     };
+      
+        //     // Đọc file ảnh đã chọn
+        //     reader.readAsDataURL(file);
+        //   }
+        // }
+
         const {name , value} = e.target;
         setProduct({
             ...product,
             [name]: value,
+            // image: imageSrc,
         })
     };
 
@@ -100,7 +116,7 @@ const FormProduct = (props) => {
                 <form action="" onSubmit={onSubmitHandler}>
                     <div className="tt">
                         <label htmlFor="">Chọn ảnh:</label>
-                        <input type="file" name="image" value={product.image} onChange={onChangeHandler} />
+                        <input type="file" accept="image/*" name="image" value={product.image} onChange={onChangeHandler} />
                     </div>
 
                     <div className="tt">
