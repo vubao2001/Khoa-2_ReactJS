@@ -11,7 +11,7 @@ const StackProduct = () => {
                 <button>Mới Nhất</button>
                 <button>Bán Chạy</button>
                 <select name="price" id="stack__price">
-                    <option value="price" disabled placeholder="Giá">Giá</option>
+                    <option value="price" placeholder="Giá">Giá</option>
                     <option value="100">100.000</option>
                     <option value="200">200.000</option>
                 </select>

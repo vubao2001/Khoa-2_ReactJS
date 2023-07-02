@@ -22,28 +22,28 @@ export const productMockData = [
         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
         name: 'Sản phẩm 2',
         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
-        price: 100,
+        price: 400,
     },
     {
         id: uuidv4(),
         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
         name: 'Sản phẩm 3',
         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
-        price: 100,
+        price: 500,
     },
     {
         id: uuidv4(),
         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
         name: 'Sản phẩm 4',
         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
-        price: 100,
+        price: 600,
     },
     {
         id: uuidv4(),
         image: 'https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches.jpg',
         name: 'Sản phẩm 5',
         text: 'Some quick example text to build on the card title and make up the bulk of the card content.',
-        price: 100,
+        price: 200,
     },
 ]
 
@@ -66,7 +66,7 @@ const ItemProducts = () => {
     // Xóa sản phẩm
     const onDeleteStudentHandler = (id) => {
         // productList.filter(product => product.id === id)
-        productList.map( (product, index) => {
+        productList.map((product, index) => {
             if (product.id === id) {
                 // productList.splice(product.id, 1);
                 productList.splice(index, 1);
@@ -80,7 +80,12 @@ const ItemProducts = () => {
 
     // Sắp xếp giá giảm dần
     const arrangeProductHandler = () => {
-
+        // console.log(123);
+        productList.sort((productA, productB) => {
+            // console.log(productA.price);
+            return productA.price - productB.price
+        })
+        return setProductList([...productList]);
     }
 
 
@@ -91,7 +96,7 @@ const ItemProducts = () => {
 
     return (
         <>
-            <FormProduct addNewProduct={AddProductHandler} arrangeProduct={arrangeProductHandler}/>
+            <FormProduct addNewProduct={AddProductHandler} arrangeProduct={arrangeProductHandler} />
             <StackProduct />
 
             <div className="product-list d-flex gap-5 flex-wrap">

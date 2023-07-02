@@ -70,9 +70,11 @@ const FormProduct = (props) => {
     // };
 
 
+    
     // cách 2: nên dùng
     const onChangeHandler  = (e) => {
         e.preventDefault();
+
         // const [imageSrc, setImageSrc] = useState('');
         // const file = e.target.files[0];
         // if (file) {
@@ -88,11 +90,12 @@ const FormProduct = (props) => {
         //   }
         // }
 
+        // 
         const {name , value} = e.target;
         setProduct({
             ...product,
             [name]: value,
-            // image: imageSrc,
+            // image: imageSrc
         })
     };
 
@@ -105,7 +108,7 @@ const FormProduct = (props) => {
     }
 
     const onArrangeHandler = () => {
-        props.arrangeProductHandler();
+        props.arrangeProduct();
     };
 
 
@@ -135,13 +138,13 @@ const FormProduct = (props) => {
                     </div>
 
                     <button type="submit" >Thêm</button>
-                    <button>Sửa</button>
-                    <button>Tìm kiếm</button>
-                    <button onClick={onArrangeHandler} >Sắp xếp (theo giá giảm dần)</button>
+                    {/* <button>Sửa</button>
+                    <button>Tìm kiếm</button> */}
                 </form>
+                    <button onClick={onArrangeHandler} >Sắp xếp (theo giá giảm dần)</button>
             </div>
         </>
     );
-}
+};
 
 export default FormProduct;
