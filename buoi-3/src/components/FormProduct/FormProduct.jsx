@@ -69,36 +69,24 @@ const FormProduct = (props) => {
     //     setProductList([...productList]);
     // };
 
-
     
     // cách 2: nên dùng
     const onChangeHandler  = (e) => {
         e.preventDefault();
-
-        // const [imageSrc, setImageSrc] = useState('');
-        // const file = e.target.files[0];
-        // if (file) {
-        //     const reader = new FileReader();
-      
-        //     // Xử lý khi đọc file hoàn tất
-        //     reader.onload = function(event) {
-        //         setImageSrc(event.target.result);
-        //     };
-      
-        //     // Đọc file ảnh đã chọn
-        //     reader.readAsDataURL(file);
-        //   }
-        // }
-
-        // 
         const {name , value} = e.target;
+        // const file = e.target.files[0];
+        // file.preview = URL.createObjectURL(file);
+        // console.log(typeof file.preview);
+
         setProduct({
             ...product,
             [name]: value,
-            // image: imageSrc
+            // image: file.preview,
         })
     };
 
+
+    // 
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
